@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whalesbot Strategic Partnership Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Neutrals -->
+    <!-- Application Structure Plan: A dashboard-style SPA designed for an executive audience. It prioritizes key financial takeaways and strategic vision upfront. The structure uses interactive components like a clickable roadmap, tabbed sections for the NYC lab, and dynamic charts for financials to allow for quick scanning and deep dives. This non-linear approach is more effective for decision-makers than a linear document, enabling them to explore sections based on priority. -->
+    <!-- Visualization & Content Choices: Executive Summary -> High-impact stat cards for immediate insight. Roadmap -> Interactive timeline to visualize progression. Financials -> Donut/Bar charts (Chart.js) to compare components of costs and revenues. Risks -> Accordion UI to organize complex information cleanly. Lab Design -> HTML/CSS grid to create a conceptual diagram. These choices make dense business data digestible and engaging, confirming NO SVG/Mermaid is used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.3s; }
+        .nav-link.active, .nav-link:hover { color: #2563eb; border-bottom-color: #2563eb; }
+        .stat-card { background-color: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1); }
+        .phase { cursor: pointer; transition: all 0.3s; border-left-width: 4px; border-color: transparent; }
+        .phase.active { border-color: #2563eb; background-color: #eff6ff; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .chart-container { position: relative; width: 100%; max-width: 450px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        .tab-button.active { background-color: #2563eb; color: white; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-xl font-bold text-blue-700">Whalesbot Partnership</h1>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#vision" class="nav-link text-slate-600 font-medium border-b-2 border-transparent pb-1">Vision</a>
+                    <a href="#roadmap" class="nav-link text-slate-600 font-medium border-b-2 border-transparent pb-1">Roadmap</a>
+                    <a href="#lab" class="nav-link text-slate-600 font-medium border-b-2 border-transparent pb-1">The Lab</a>
+                    <a href="#financials" class="nav-link text-slate-600 font-medium border-b-2 border-transparent pb-1">Financials</a>
+                    <a href="#risks" class="nav-link text-slate-600 font-medium border-b-2 border-transparent pb-1">Risks</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 lg:p-6">
+
+        <section id="hero" class="text-center py-12">
+            <h2 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">A Strategic Partnership for Global Reach</h2>
+            <p class="mt-6 text-lg leading-8 text-slate-600 max-w-3xl mx-auto">This proposal outlines a multi-phased partnership to establish Whalesbot as a market leader in Africa and the United States, centered around the creation of a flagship Innovation Lab in New York City.</p>
+
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="stat-card">
+                    <p class="text-slate-500 font-medium">Initial Investment</p>
+                    <p class="text-3xl font-bold text-blue-600 mt-2">$275k - $425k</p>
+                    <p class="text-sm text-slate-400 mt-1">One-time establishment cost</p>
+                </div>
+                <div class="stat-card">
+                    <p class="text-slate-500 font-medium">Projected Break-Even</p>
+                    <p class="text-3xl font-bold text-green-600 mt-2">&lt; 3 Years</p>
+                    <p class="text-sm text-slate-400 mt-1">Based on operational costs</p>
+                </div>
+                <div class="stat-card">
+                    <p class="text-slate-500 font-medium">Annual Revenue Engine</p>
+                    <p class="text-3xl font-bold text-blue-600 mt-2">$840k - $1.6M+</p>
+                    <p class="text-sm text-slate-400 mt-1">Direct & influenced revenue</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-12 border-t border-slate-200"></div>
+
+        <section id="vision" class="py-12">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-blue-600 font-semibold">Our Vision</h3>
+                <h4 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Beyond Distribution: A True Partnership</h4>
+                <p class="mt-6 text-lg text-slate-600">Our goal is to create a powerful synergy that positions Whalesbot as the premier provider for educational robotics and AI solutions in new markets. We propose a collaborative model focused on long-term market building, brand elevation, and community impact, moving far beyond a traditional distributor relationship.</p>
+            </div>
+        </section>
+
+        <div class="my-12 border-t border-slate-200"></div>
+
+        <section id="roadmap" class="py-12">
+            <div class="text-center mb-12">
+                <h3 class="text-blue-600 font-semibold">Implementation Plan</h3>
+                <h4 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Three-Year Partnership Roadmap</h4>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">A phased approach ensures strategic, sustainable market expansion and measurable success.</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+                <div class="md:w-1/3">
+                    <div id="phase-1" class="phase active p-4 rounded-lg">
+                        <p class="font-bold text-lg text-slate-900">Phase 1: Foundation (Year 1)</p>
+                        <p class="text-slate-600">Establish the NYC Lab and initiate African market entry.</p>
+                    </div>
+                    <div id="phase-2" class="phase p-4 rounded-lg mt-4">
+                        <p class="font-bold text-lg text-slate-900">Phase 2: Growth & Scaling (Year 2)</p>
+                        <p class="text-slate-600">Scale programs and launch new growth initiatives.</p>
+                    </div>
+                    <div id="phase-3" class="phase p-4 rounded-lg mt-4">
+                        <p class="font-bold text-lg text-slate-900">Phase 3: Market Leadership (Year 3)</p>
+                        <p class="text-slate-600">Cement Whalesbot's position as a market leader.</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3 bg-white p-6 rounded-lg shadow-md">
+                    <div id="milestones-content">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-12 border-t border-slate-200"></div>
+
+        <section id="lab" class="py-12 bg-slate-50 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-lg">
+            <div class="text-center mb-12">
+                <h3 class="text-blue-600 font-semibold">The Cornerstone</h3>
+                <h4 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">The Whalesbot Innovation Lab: NYC</h4>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">The lab will be a beacon for educational robotics, dedicated to empowering students and educators while serving as the central hub for North American expansion.</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="flex justify-center mb-8 border border-slate-200 rounded-lg p-1 bg-slate-100 max-w-md mx-auto">
+                    <button data-tab="functions" class="tab-button flex-1 px-4 py-2 text-sm font-semibold rounded-md transition active">Core Functions</button>
+                    <button data-tab="design" class="tab-button flex-1 px-4 py-2 text-sm font-semibold rounded-md transition">Conceptual Design</button>
+                </div>
+
+                <div id="lab-content" class="bg-white p-6 rounded-lg shadow-inner">
+                </div>
+            </div>
+        </section>
+
+        <div class="my-12 border-t border-slate-200"></div>
+
+        <section id="financials" class="py-12">
+            <div class="text-center mb-12">
+                <h3 class="text-blue-600 font-semibold">The Numbers</h3>
+                <h4 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Financial Plan & ROI Analysis</h4>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">A clear path to profitability, demonstrating a strong return on investment through direct revenue and influenced sales.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h5 class="font-bold text-lg text-center mb-4">Cost & Revenue Breakdown</h5>
+                    <div class="flex justify-center mb-6">
+                        <div class="p-1 bg-slate-100 rounded-lg border border-slate-200">
+                            <button id="costs-btn" class="px-3 py-1 text-sm font-semibold rounded-md bg-blue-600 text-white">Costs</button>
+                            <button id="revenue-btn" class="px-3 py-1 text-sm font-semibold rounded-md">Revenue</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="financialsChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h5 class="font-semibold text-slate-900">Funding Model</h5>
+                        <p class="text-slate-600 mt-2"><strong class="text-slate-800">Whalesbot's Role:</strong> Provide primary funding for lab establishment and initial operational costs (Years 1-3).</p>
+                        <p class="text-slate-600 mt-1"><strong class="text-slate-800">Our Role:</strong> Full responsibility for day-to-day management, program development, and aligning the lab with global objectives.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h5 class="font-semibold text-slate-900">Key Projections</h5>
+                        <ul class="mt-2 space-y-2 text-slate-600">
+                            <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong class="text-slate-800">Total Annual Revenue:</strong> $840k - $1.6M+ (Direct & Influenced)</span></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong class="text-slate-800">U.S. Sales Pipeline:</strong> $500k - $1M+ annually.</span></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong class="text-slate-800">African Market Expansion:</strong> $250k - $500k+ annually.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-12 border-t border-slate-200"></div>
+
+        <section id="risks" class="py-12">
+            <div class="text-center mb-12">
+                <h3 class="text-blue-600 font-semibold">Contingency Planning</h3>
+                <h4 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Risk Mitigation Strategies</h4>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">Proactive strategies to ensure the success and stability of this venture.</p>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="accordion-item bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                        Market Adoption Risk
+                        <span class="transform transition-transform duration-300">▼</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5">
+                        <p class="text-slate-600">We will conduct continuous market research and adjust our strategies, including curriculum and outreach, based on feedback from educators and students to ensure product-market fit.</p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                        Financial Risk
+                        <span class="transform transition-transform duration-300">▼</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5">
+                        <p class="text-slate-600">We will implement strict budget controls and regularly report on our key performance indicators (KPIs) to ensure transparency and accountability. We will also actively seek out supplementary funding through grants and corporate sponsorships.</p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                        Operational Risk
+                        <span class="transform transition-transform duration-300">▼</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5">
+                        <p class="text-slate-600">We will staff the lab with experienced professionals and establish clear operational protocols to ensure smooth day-to-day management and a high-quality user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-white mt-16">
+        <div class="container mx-auto py-8 px-6 text-center">
+            <p class="font-bold text-lg">Ready to Build the Future of STEM Education?</p>
+            <p class="text-slate-300 mt-2">We are confident that this partnership will deliver exceptional returns and a lasting legacy. <br>We are eager to proceed with a detailed discussion.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const roadmapData = {
+        'phase-1': {
+            title: "Phase 1: Foundation",
+            milestones: [
+                "Secure a location for the NYC Innovation Lab.",
+                "Hire core staff for the lab and African market management.",
+                "Finalize and implement the first teacher training curriculum in NYC.",
+                "Conduct initial market analysis in 3-5 target African countries.",
+                "Secure first distribution partnerships in key African countries."
+            ]
+        },
+        'phase-2': {
+            title: "Phase 2: Growth & Scaling",
+            milestones: [
+                "Host the first major regional robotics competition in the NYC Innovation Lab.",
+                "Launch a comprehensive digital marketing campaign targeting U.S. school districts.",
+                "Expand distribution and training programs to an additional 5-7 African countries.",
+                "Secure first partnerships with U.S. school districts and after-school programs."
+            ]
+        },
+        'phase-3': {
+            title: "Phase 3: Market Leadership",
+            milestones: [
+                "The NYC Innovation Lab achieves a self-sustaining operational model.",
+                "Whalesbot becomes the official robotics curriculum for multiple U.S. school districts.",
+                "Host a pan-African Whalesbot ENJOY AI competition.",
+                "Explore potential for a second Innovation Lab in a strategic city."
+            ]
+        }
+    };
+
+    const labData = {
+        functions: `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <h5 class="font-semibold text-blue-600">Showcase & Training Center</h5>
+                    <p class="text-slate-600 mt-1 text-sm">A state-of-the-art facility for product demos, educator workshops, and official Whalesbot teacher certification programs.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <h5 class="font-semibold text-blue-600">Curriculum Development & R&D</h5>
+                    <p class="text-slate-600 mt-1 text-sm">A collaborative space for co-creating new educational content and applications tailored for the North American market.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <h5 class="font-semibold text-blue-600">Community Engagement</h5>
+                    <p class="text-slate-600 mt-1 text-sm">A hub for student competitions, hackathons, and outreach programs, with a focus on underserved communities.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <h5 class="font-semibold text-blue-600">U.S. Operations Base</h5>
+                    <p class="text-slate-600 mt-1 text-sm">A central hub for North American operations, enhancing logistics, sales, and customer support.</p>
+                </div>
+            </div>
+        `,
+        design: `
+            <p class="text-center text-slate-600 mb-6">The lab's design will be a physical manifestation of the Whalesbot brand—clean, modern, and inspiring. It will be an open-plan space with distinct functional zones.</p>
+            <div class="border-2 border-slate-300 border-dashed rounded-lg p-4 grid grid-cols-3 grid-rows-3 gap-2 h-80 bg-slate-50">
+                <div class="col-span-2 row-span-2 bg-blue-100/50 rounded-md flex items-center justify-center p-2 text-center font-semibold text-blue-800">Showcase Arena & Competition Mat</div>
+                <div class="bg-slate-200/60 rounded-md flex items-center justify-center p-2 text-center text-sm font-medium text-slate-700">R&D Nook (Glass Enclosed)</div>
+                <div class="bg-slate-200/60 rounded-md flex items-center justify-center p-2 text-center text-sm font-medium text-slate-700">Lounge & Presentation</div>
+                <div class="bg-slate-200/60 rounded-md flex items-center justify-center p-2 text-center text-sm font-medium text-slate-700">Workshop Zone A</div>
+                <div class="bg-slate-200/60 rounded-md flex items-center justify-center p-2 text-center text-sm font-medium text-slate-700">Workshop Zone B</div>
+                <div class="bg-slate-200/60 rounded-md flex items-center justify-center p-2 text-center text-sm font-medium text-slate-700">Office & Support</div>
+            </div>
+        `
+    };
+
+    const milestonesContent = document.getElementById('milestones-content');
+    const phases = document.querySelectorAll('.phase');
+
+    function updateMilestones(phaseId) {
+        const data = roadmapData[phaseId];
+        milestonesContent.innerHTML = `
+            <h5 class="font-bold text-xl mb-4">${data.title}</h5>
+            <ul class="space-y-3">
+                ${data.milestones.map(m => `<li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">▶</span><span class="text-slate-700">${m}</span></li>`).join('')}
+            </ul>
+        `;
+        phases.forEach(p => p.classList.remove('active'));
+        document.getElementById(phaseId).classList.add('active');
+    }
+
+    phases.forEach(phase => {
+        phase.addEventListener('click', () => updateMilestones(phase.id));
+    });
+
+    updateMilestones('phase-1');
+
+    const labContent = document.getElementById('lab-content');
+    const labTabs = document.querySelectorAll('.tab-button');
+
+    function updateLabContent(tabId) {
+        labContent.innerHTML = labData[tabId];
+        labTabs.forEach(t => t.classList.remove('active'));
+        document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+    }
+
+    labTabs.forEach(tab => {
+        tab.addEventListener('click', () => updateLabContent(tab.dataset.tab));
+    });
+
+    updateLabContent('functions');
+
+    const accordions = document.querySelectorAll('.accordion-item');
+    accordions.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            const content = item.querySelector('.accordion-content');
+            const icon = header.querySelector('span');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                accordions.forEach(otherItem => {
+                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    otherItem.querySelector('.accordion-header span').style.transform = 'rotate(0deg)';
+                })
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    const financialsCtx = document.getElementById('financialsChart').getContext('2d');
+    let financialsChart;
+    const costsData = {
+        labels: ['Staffing', 'Rent', 'Program Costs', 'Marketing', 'Utilities'],
+        datasets: [{
+            label: 'Annual Operational Costs',
+            data: [400000, 180000, 75000, 50000, 30000],
+            backgroundColor: ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'],
+            hoverOffset: 4
+        }]
+    };
+    const revenueData = {
+        labels: ['U.S. Sales', 'African Sales', 'Direct Revenue'],
+        datasets: [{
+            label: 'Projected Annual Revenue',
+            data: [1000000, 500000, 180000],
+            backgroundColor: ['#16a34a', '#4ade80', '#86efac'],
+            hoverOffset: 4
+        }]
+    };
+
+    function createChart(data, type, title) {
+        if (financialsChart) {
+            financialsChart.destroy();
+        }
+        financialsChart = new Chart(financialsCtx, {
+            type: type,
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: title,
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    createChart(costsData, 'doughnut', 'Annual Operational Costs');
+
+    const costsBtn = document.getElementById('costs-btn');
+    const revenueBtn = document.getElementById('revenue-btn');
+    costsBtn.addEventListener('click', () => {
+        createChart(costsData, 'doughnut', 'Annual Operational Costs');
+        costsBtn.classList.add('bg-blue-600', 'text-white');
+        revenueBtn.classList.remove('bg-blue-600', 'text-white');
+    });
+    revenueBtn.addEventListener('click', () => {
+        createChart(revenueData, 'bar', 'Projected Annual Revenue');
+        revenueBtn.classList.add('bg-blue-600', 'text-white');
+        costsBtn.classList.remove('bg-blue-600', 'text-white');
+    });
+});
+</script>
+</body>
+</html>
